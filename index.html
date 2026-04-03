@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cash Flow Tracker</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<h1>Cash Flow Tracker</h1>
+
+
+<section class="container">
+<div class="service-card">
+    <p>Salary: <input type="number" id="salaryInput" placeholder="Enter Salary" onchange="setSalary()"></p>
+
+     <p>Enter Expense Name: <input type="text" id="expenseName" placeholder="Expense Name"> </p>
+     <p>Enter Expense Amount: <input type="number" id="expenseAmount" placeholder="Amount" onchange="addExpense()"> </p>
+    
+    <select id="currency" onchange="convertCurrency()">
+        <option value="INR">INR ₹</option>
+        <option value="USD">USD $</option>
+        <option value="EUR">EUR €</option>
+    </select>
+
+    <!-- Download -->
+    <button onclick="downloadPDF()">Download Report</button>
+
+    <!-- Display -->
+    <h2>Salary: <span id="salary">0</span></h2>
+    <h2>Expenses: <span id="totalExpense">0</span></h2>
+    <h2 id="balanceText">Balance: <span id="balance">0</span></h2>
+
+    
+        </div>
+        <div class="service-card">
+            <canvas id="myChart"></canvas>
+            <ul id="expenseList"></ul>
+        </div>
+
+</section>
+
+<script src="index.js"></script>
+</body>
+</html>
